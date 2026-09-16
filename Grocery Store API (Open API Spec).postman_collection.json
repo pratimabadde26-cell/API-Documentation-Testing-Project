@@ -1,0 +1,2172 @@
+{
+  "info": {
+    "_postman_id": "244765de-71f0-4a5b-a243-33a1f2c5f378",
+    "name": "Grocery Store API (Open API Spec)",
+    "description": "This API allows you to place a grocery order which will be readyfor pick-up in the store. The API is available athttps://simple-grocery-store-api.glitch.me",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54401786",
+    "_collection_link": "https://go.postman.co/collection/54401786-244765de-71f0-4a5b-a243-33a1f2c5f378?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "status",
+      "item": [
+        {
+          "name": "Returns the status of the API",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": \"UP\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "{productId}",
+          "item": [
+            {
+              "name": "Get a product",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/products/:productId?product-label=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products",
+                    ":productId"
+                  ],
+                  "query": [
+                    {
+                      "key": "product-label",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "4643"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/products/:productId?product-label=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "products",
+                        ":productId"
+                      ],
+                      "query": [
+                        {
+                          "key": "product-label",
+                          "value": "true"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId",
+                          "value": "4643"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 4643,\n  \"category\": \"coffee\",\n  \"name\": \"Starbucks Coffee Variety Pack, 100% Arabica\",\n  \"manufacturer\": \"Starbucks\",\n  \"price\": 40.91,\n  \"current-stock\": 14,\n  \"inStock\": true\n}"
+                },
+                {
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/products/:productId?product-label=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "products",
+                        ":productId"
+                      ],
+                      "query": [
+                        {
+                          "key": "product-label",
+                          "value": "true"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId",
+                          "value": "4643"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products?category=dairy&results=20&available=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "dairy"
+                },
+                {
+                  "key": "results",
+                  "value": "20"
+                },
+                {
+                  "key": "available",
+                  "value": "false"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/products?category=dairy&results=20&available=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "dairy"
+                    },
+                    {
+                      "key": "results",
+                      "value": "20"
+                    },
+                    {
+                      "key": "available",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 4643,\n    \"category\": \"coffee\",\n    \"name\": \"Starbucks Coffee Variety Pack, 100%Arabica\",\n    \"inStock\": true\n  },\n  {\n    \"id\": 4646,\n    \"category\": \"coffee\",\n    \"name\": \"Ethical Bean Medium Dark Roast,Espresso\",\n    \"inStock\": true\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "carts",
+      "item": [
+        {
+          "name": "{cartId}",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{itemId}",
+                  "item": [
+                    {
+                      "name": "Allows modifying information about an item in the cart.",
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"quantity\": 1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items",
+                            ":itemId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            },
+                            {
+                              "key": "itemId",
+                              "value": "383044229"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "204",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                        },
+                        {
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Replace an item in the cart.",
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"productId\": 4643,\n  \"quantity\": 1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items",
+                            ":itemId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            },
+                            {
+                              "key": "itemId",
+                              "value": "383044229"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "204",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"productId\": 4643,\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"productId\": 4643,\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                        },
+                        {
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"productId\": 4643,\n  \"quantity\": 1\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Deletes an item in the cart.",
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items",
+                            ":itemId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            },
+                            {
+                              "key": "itemId",
+                              "value": "383044229"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "204",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "carts",
+                                ":cartId",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cartId",
+                                  "value": "xrc_kqazYgEQyTvTLX1hk"
+                                },
+                                {
+                                  "key": "itemId",
+                                  "value": "383044229"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Get cart items",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/carts/:cartId/items",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "carts",
+                        ":cartId",
+                        "items"
+                      ],
+                      "variable": [
+                        {
+                          "key": "cartId",
+                          "value": "xrc_kqazYgEQyTvTLX1hk"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": \"string\",\n    \"productId\": 5497,\n    \"quantity\": 3657\n  },\n  {\n    \"id\": \"string\",\n    \"productId\": 3987,\n    \"quantity\": 6524\n  }\n]"
+                    },
+                    {
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add an item to cart",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"productId\": 4643\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/carts/:cartId/items",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "carts",
+                        ":cartId",
+                        "items"
+                      ],
+                      "variable": [
+                        {
+                          "key": "cartId",
+                          "value": "xrc_kqazYgEQyTvTLX1hk"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "201",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"productId\": 4643\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"created\": true,\n  \"itemId\": \"307737708\"\n}"
+                    },
+                    {
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"productId\": 4643\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/carts/:cartId/items",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "carts",
+                            ":cartId",
+                            "items"
+                          ],
+                          "variable": [
+                            {
+                              "key": "cartId",
+                              "value": "xrc_kqazYgEQyTvTLX1hk"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Returns a cart",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/carts/:cartId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "carts",
+                    ":cartId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "cartId",
+                      "value": "xrc_kqazYgEQyTvTLX1hk"
+                    }
+                  ]
+                },
+                "description": "Get a cart"
+              },
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/carts/:cartId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "carts",
+                        ":cartId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "cartId",
+                          "value": "xrc_kqazYgEQyTvTLX1hk"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"created\": \"1951-01-21T18:39:54.548Z\",\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"productId\": 4399,\n      \"quantity\": 4318\n    },\n    {\n      \"id\": \"string\",\n      \"productId\": 8766,\n      \"quantity\": 4549\n    }\n  ]\n}"
+                },
+                {
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/carts/:cartId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "carts",
+                        ":cartId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "cartId",
+                          "value": "xrc_kqazYgEQyTvTLX1hk"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create a new cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/carts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/carts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "carts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"created\": true,\n  \"cartId\": \"bx0-ycNjqIm5IvufuuZ09\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "{orderId}",
+          "item": [
+            {
+              "name": "Updates the comment or customer name associated with anorder",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerName\": \"John Doe\",\n  \"comment\": \"An example comment\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "orderId",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "204",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerName\": \"John Doe\",\n  \"comment\": \"An example comment\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerName\": \"John Doe\",\n  \"comment\": \"An example comment\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                },
+                {
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerName\": \"John Doe\",\n  \"comment\": \"An example comment\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                },
+                {
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerName\": \"John Doe\",\n  \"comment\": \"An example comment\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Delete an order",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "orderId",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "204",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                },
+                {
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                },
+                {
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all /orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"items\": {\n      \"id\": \"string\",\n      \"productId\": 907,\n      \"quantity\": 6733\n    },\n    \"customerName\": \"string\",\n    \"created\": \"2017-03-08T18:39:39.781Z\",\n    \"comment\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"items\": {\n      \"id\": \"string\",\n      \"productId\": 8729,\n      \"quantity\": 9040\n    },\n    \"customerName\": \"string\",\n    \"created\": \"1961-05-21T21:03:09.400Z\",\n    \"comment\": \"string\"\n  }\n]"
+            },
+            {
+              "name": "401",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create a new order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cartId\": \"ZFe4yhG5qNhmuNyrbLWa4\",\n  \"customerName\": \"John Doe\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cartId\": \"ZFe4yhG5qNhmuNyrbLWa4\",\n  \"customerName\": \"John Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"created\": true,\n  \"orderId\": \"vJln6UPMuNEtn4x3UmfWC\"\n}"
+            },
+            {
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cartId\": \"ZFe4yhG5qNhmuNyrbLWa4\",\n  \"customerName\": \"John Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+            },
+            {
+              "name": "401",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cartId\": \"ZFe4yhG5qNhmuNyrbLWa4\",\n  \"customerName\": \"John Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "api-clients",
+      "item": [
+        {
+          "name": "Register a new API client",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientName\": \"John Doe\",\n  \"clientEmail\": \"150b3447-7d12-426e-ba77-a1203d28f8a5@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api-clients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api-clients"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientName\": \"John Doe\",\n  \"clientEmail\": \"150b3447-7d12-426e-ba77-a1203d28f8a5@example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api-clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api-clients"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"accessToken\": \"8363b83fa762c34055b7d8135e2c521fc9fa5b743b140e05ca178b62a21ba9f2\"\n}"
+            },
+            {
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientName\": \"John Doe\",\n  \"clientEmail\": \"150b3447-7d12-426e-ba77-a1203d28f8a5@example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api-clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api-clients"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+            },
+            {
+              "name": "409",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientName\": \"John Doe\",\n  \"clientEmail\": \"150b3447-7d12-426e-ba77-a1203d28f8a5@example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api-clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api-clients"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"The error message associated with the request\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://simple-grocery-store-api.glitch.me"
+    }
+  ]
+}
